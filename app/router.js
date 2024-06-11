@@ -9,11 +9,12 @@ const router = express.Router();
 // page d'accueil
 router.get("/", mainController.homePage);
 
-// page article
-router.get("/article", mainController.articlePage);
+// page article (ajout de route paramétrée)
+router.get("/article/:id", mainController.articlePage);
 
 // page favoris
 router.get("/bookmarks", bookmarksController.bookmarksPage);
-
+router.get("/bookmarks/add/:id", bookmarksController.addFigurineInSession);
+router.get("/bookmarks/delete/:id", bookmarksController.deleteFigurine);
 // on exporte le router
 module.exports = router;
